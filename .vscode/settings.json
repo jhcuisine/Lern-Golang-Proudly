@@ -1,0 +1,186 @@
+{
+  // =======================
+  // General Formatting Settings
+  // =======================
+  // Automatically format files on save.
+  // This ensures that every time you save a file, it is formatted according to the specified formatting tools.
+  "editor.formatOnSave": true,
+
+  // Format code when pasting content into the editor.
+  // This is helpful to maintain a consistent code style even when copying/pasting code from other sources.
+  "editor.formatOnPaste": true,
+
+  // Format code as you type.
+  // This option formats your code instantly while you're typing, keeping your code style consistent as you work.
+  "editor.formatOnType": true,
+
+  // =======================
+  // Default Formatter Settings
+  // =======================
+  // Use Prettier as the default formatter for non-Go files.
+  // Prettier is a code formatter that helps maintain a consistent style across a wide range of languages (like JavaScript, TypeScript, etc.).
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+
+  // =======================
+  // Go-specific Formatting Settings
+  // =======================
+  "[go]": {
+    // Use the Go extension's built-in formatter for Go files.
+    // This ensures Go files are formatted with `gofmt`, which is the official Go formatting tool.
+    "editor.defaultFormatter": "golang.go",
+
+    // Automatically format Go files on save.
+    "editor.formatOnSave": true,
+
+    // Automatically format Go code when pasted into the editor.
+    "editor.formatOnPaste": true,
+
+    // Automatically format Go code as you type.
+    "editor.formatOnType": true,
+
+    // =======================
+    // Code Actions on Save
+    // =======================
+    // Automatically perform code actions like organizing imports and fixing issues when saving the file.
+    // This helps to keep your Go code clean, removing unused imports, sorting them, and fixing linting issues.
+    "editor.codeActionsOnSave": {
+      // Organize imports automatically: removes unused imports and sorts them in the correct order.
+      "source.organizeImports": "always",
+
+      // Fix all fixable issues automatically: this will run a series of automatic fixes (like correcting linting problems) when saving.
+      "source.fixAll": "always"
+    },
+
+    // =======================
+    // Auto Save and Auto Save Delay Settings
+    // =======================
+    // Enable auto-saving of files whenever the window loses focus or changes.
+    // This prevents you from losing unsaved changes and is helpful if you forget to save files manually.
+    "files.autoSave": "onWindowChange",
+
+    // Set the delay before the file is automatically saved (in milliseconds). This allows you to continue working without waiting for save actions.
+    "files.autoSaveDelay": 1000, // 1 second delay before auto-saving.
+
+    // =======================
+    // Indentation and Formatting for Go Files
+    // =======================
+    // Ensure that Go files use 4 spaces per indentation level, which is the Go community's standard.
+    "editor.tabSize": 4, // 4 spaces for Go indentation
+
+    // Make sure that spaces are used for indentation, not tabs. This is important to maintain Go's consistent style.
+    "editor.insertSpaces": true,
+
+    // Use LF (Line Feed) for line endings, which is the standard for Unix-based systems and also recommended for Go projects.
+    "files.eol": "\n",
+
+    // Show all whitespace characters in the editor for better visibility, especially helpful for checking indentation and alignment.
+    "editor.renderWhitespace": "all",
+
+    // Show a vertical ruler at 80 characters, which is the standard line length for Go code, helping you keep code lines within this limit.
+    "editor.rulers": [80],
+
+    // =======================
+    // Miscellaneous Editor Settings
+    // =======================
+    // Enable smooth scrolling in the editor for better visual experience when reading or editing code.
+    "editor.smoothScrolling": true,
+
+    // Display snippets inline with IntelliSense suggestions to make them more accessible.
+    "editor.snippetSuggestions": "inline",
+
+    // Enable automatic closing of brackets when typing, such as `{`, `}`, `(`, `)`, etc.
+    "editor.autoClosingBrackets": "always",
+
+    // Enable automatic closing of quotes when typing, such as `"` and `'`.
+    "editor.autoClosingQuotes": "always",
+
+    // Ensure that code is automatically indented when typing or pasting code.
+    "editor.autoIndent": "full",
+
+    // Set the cursor style to "line" and enable smooth cursor blinking for better readability.
+    "editor.cursorBlinking": "smooth",
+    "editor.cursorStyle": "line",
+
+    // Show a minimap for large files to provide an overview of the code structure for quicker navigation.
+    "editor.minimap.enabled": true,
+
+    // Enable word wrap to avoid horizontal scrolling and improve readability for long lines of code.
+    "editor.wordWrap": "on",
+
+    // Disable automatic detection of indentation style to rely on manual settings instead.
+    "editor.detectIndentation": false,
+
+    // Show line numbers in the editor to help navigate through the code.
+    "editor.lineNumbers": "on",
+
+    // Display control characters like tab and newline symbols for better visibility of how code is structured.
+    "editor.renderControlCharacters": true,
+
+    // =======================
+    // Quick Suggestions Settings
+    // =======================
+    // Enable quick suggestions inside strings, comments, and code to improve productivity while coding.
+    "editor.quickSuggestions": {
+      "strings": true, // Enable suggestions within string literals
+      "other": true, // Enable suggestions within regular code
+      "comments": true // Enable suggestions inside comments
+    }
+  },
+
+  // =======================
+  // Go Language Server (gopls) Settings
+  // =======================
+  // Enable the Go language server (gopls) for enhanced code intelligence features, such as code completion, error diagnostics, and more.
+  // gopls provides better Go code editing experience and integrates with the editor to provide fast feedback.
+  "go.useLanguageServer": true,
+
+  // Flags to configure the gopls language server.
+  // The "-rpc.trace" flag enables tracing for debugging, which helps you troubleshoot issues related to gopls.
+  // The "serve" flag tells gopls to launch and serve the language server.
+  // The "--debug=localhost:6060" flag enables remote debugging of gopls.
+  "go.languageServerFlags": [
+    "-rpc.trace", // Enables tracing for gopls communication.
+    "serve", // Starts gopls to handle the Go language features.
+    "--debug=localhost:6060" // Enable remote debugging for gopls.
+  ],
+
+  // =======================
+  // Go Formatter Settings
+  // =======================
+  // Use the gofmt tool for Go code formatting. This is the official Go formatter and ensures that your code adheres to Go's standard formatting style.
+  "go.formatTool": "gofmt",
+
+  // =======================
+  // Testing Settings
+  // =======================
+  // Automatically run tests when saving a Go file. This gives immediate feedback on whether the code changes pass the tests.
+  "go.testOnSave": true,
+
+  // Specify flags for running Go tests. The "-v" flag enables verbose output for more detailed test results.
+  "go.testFlags": ["-v"], // Run tests with verbose output
+
+  // Display test coverage in the editor's gutter. This helps you see which lines of your Go code are covered by tests.
+  "go.coverageDecorator": {
+    "type": "gutter" // Display coverage as a colored bar in the editor gutter.
+  },
+
+  // =======================
+  // Linting Settings
+  // =======================
+  // Use golint for linting Go code. golint is a popular Go linter that detects potential issues in Go code, such as style violations.
+  "go.lintTool": "golint",
+
+  // Run the linter on save. This ensures that your code is always linted before you commit or push changes.
+  "go.lintOnSave": "file", // Run linting on the file you are working on (as opposed to the entire package).
+
+  // =======================
+  // Go Modules and GOPATH Settings
+  // =======================
+  // Disable GOPATH inference for Go modules to fully embrace the new Go modules workflow (works with Go 1.11+).
+  "go.inferGopath": false,
+
+  // Specify the path to the Go installation (GOROOT) and the Go executable (go.exe).
+  // This ensures the correct Go installation is being used.
+  "go.gopath": "E:\\Compiler\\go\\go1.23.3.windows-amd64\\go\\bin\\go.exe",
+  "go.goroot": "E:\\Compiler\\go\\go1.23.3.windows-amd64\\go"
+}
